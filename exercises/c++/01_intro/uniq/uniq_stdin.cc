@@ -1,9 +1,13 @@
 #include <iostream>
 #include <string>
 
+namespace std {
+  const char tab = '\t';  
+};
+
 void print_count(const int c, const std::string& s)
 {
-    std::cout << "\t" << c << ": " << s << std::endl;
+    std::cout << std::tab << c << ": " << s << std::endl;
 }
 
 int main()
