@@ -38,12 +38,15 @@ int main()
 {
     const std::string msg_int = isatty(fileno(stdin)) ? "Insert an integer: " : "";
     const std::string msg_dbl = isatty(fileno(stdin)) ? "Insert a dobule: " : "";
+    //const std::string msg_uint = isatty(fileno(stdin)) ? "Insert an unsigned int: " : "";
     // If it is piping do not cout insert message
     int i = read_until<int>(msg_int);
     double d = read_until<double>(msg_dbl);
+    //unsigned int ui = read_until<unsigned int>(msg_uint);
     
     std::cout << "i= " << i << std::endl;
-    std::cout << "d= " << d << std::endl; 
+    std::cout << "d= " << d << std::endl;
+    //std::cout << "ui= " << ui << std::endl;
 
     return 0;
 }
