@@ -1,0 +1,7 @@
+pippo pluto
+paperino
+
+uno due		tre
+pippo
+pippo pluto tre
+paperino uno due due pippo
