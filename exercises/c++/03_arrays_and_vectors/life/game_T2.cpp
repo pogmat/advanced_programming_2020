@@ -166,7 +166,7 @@ int main()
 
     print_frame(status, rows, cols);
     for (;;) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(300));
+        std::this_thread::sleep_for(std::chrono::milliseconds(200));
         update_frame(status, rows, cols);
         print_frame(status, rows, cols);
     }
