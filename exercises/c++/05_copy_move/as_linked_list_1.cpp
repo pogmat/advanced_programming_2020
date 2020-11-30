@@ -129,7 +129,7 @@ public:
     return *this;    
   }
   
-  void insert(const T& x, const Method m) { _insert(x, m); }
+  void insert(const T& x, const Method m) { _insert(std::move(x), m); }
   void insert(T&& x, const Method m) { _insert(std::move(x), m); }
 
   // template <typename O>
@@ -173,7 +173,6 @@ template <typename T>
 template <typename O>
 void List<T>::_insert(O&& x, const Method m){
   std::cout << (std::is_rvalue_reference<O&&>::value ? "_insert: r-value" : "_insert: l-value") << std::endl;
-  //std::cout << (std::is_const<O&&>::value ? "const" : "non-const") << std::endl;
   switch(m){
   case Method::push_back:
     push_back(std::forward<O>(x)); 
@@ -230,13 +229,11 @@ int main(){
   std::cout << std::endl;
 
   std::cout << a << std::endl;
+  return 0;
   // l = List<int>{}; // move assignment 
   // std::cout << l; // bug: undefined behavior, we shouldn't use l
-  std::cout << "====" << std::endl;
-  List<S> l2{std::move(l)};
-  std::cout << l2 << std::endl;
-  std::cout << l << std::endl;
-  return 0;
+
+
   //List <std::pair<int, double>> lp;
   //lp.insert({4,3}, Method::push_back);
 }
